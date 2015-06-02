@@ -75,6 +75,7 @@ echo "copy bumped image"
 echo ""
 \cp /media/dgod/kernel/kernel/output/boot_bumped.img /media/dgod/kernel/kernel/output/package/boot.img
 find . -name '*ko' -exec \cp '{}' /media/dgod/kernel/kernel/output/package/system/lib/modules/ \;
+
 ### create flashable zip
 echo ""
 echo "create flashable zip"

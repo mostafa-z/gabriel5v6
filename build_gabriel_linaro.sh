@@ -14,8 +14,8 @@ echo ""
 echo "cleaning"
 echo ""
 make clean mrproper
-rm /media/dgod/kernel/kernel/test/arch/arm/boot/dt.img
-rm /media/dgod/kernel/kernel/test/arch/arm/boot/zImage-dtb
+rm /media/dgod/kernel/kernel/gabriel/arch/arm/boot/dt.img
+rm /media/dgod/kernel/kernel/gabriel/arch/arm/boot/zImage-dtb
 
 ### generate build name
 echo ""
@@ -48,7 +48,7 @@ then
 echo ""
 echo "generating device tree..."
 echo ""
-./dtbTool -o /media/dgod/kernel/kernel/test/arch/arm/boot/dt.img -s 2048 -p /media/dgod/kernel/kernel/test/scripts/dtc/ /media/dgod/kernel/kernel/test/arch/arm/boot/
+./dtbTool -o /media/dgod/kernel/kernel/gabriel/arch/arm/boot/dt.img -s 2048 -p /media/dgod/kernel/kernel/gabriel/scripts/dtc/ /media/dgod/kernel/kernel/gabriel/arch/arm/boot/
 
 ### copy zImage
 echo ""
@@ -74,6 +74,7 @@ echo ""
 echo "copy bumped image"
 echo ""
 \cp /media/dgod/kernel/kernel/output/boot_bumped.img /media/dgod/kernel/kernel/output/package/boot.img
+find . -name '*ko' -exec \cp '{}' /media/dgod/kernel/kernel/output/package/system/lib/modules/ \;
 
 ### create flashable zip
 echo ""
