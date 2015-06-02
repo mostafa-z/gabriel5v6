@@ -48,7 +48,7 @@ then
 echo ""
 echo "generating device tree..."
 echo ""
-./dtbTool -o /media/dgod/kernel/kernel/test/arch/arm/boot/dt.img -s 2048 -p /media/dgod/kernel/kernel/test/scripts/dtc/ /media/dgod/kernel/kernel/test/arch/arm/boot/
+./dtbTool -o /media/dgod/kernel/kernel/gabriel/arch/arm/boot/dt.img -s 2048 -p /media/dgod/kernel/kernel/gabriel/scripts/dtc/ /media/dgod/kernel/kernel/gabriel/arch/arm/boot/
 
 ### copy zImage
 echo ""
