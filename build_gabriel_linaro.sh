@@ -27,19 +27,19 @@ echo ""
 echo ""
 echo "generating defconfig"
 echo ""
-make ARCH=arm CROSS_COMPILE=/media/dgod/kernel/kernel/UBERTC-arm-eabi-4.9-17-5-15/bin/arm-eabi- g3-global_com-perf_defconfig
+make ARCH=arm CROSS_COMPILE=/media/dgod/kernel/kernel/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.03/bin/arm-cortex_a15-linux-gnueabihf- g3-global_com-perf_defconfig
 
 ### make changes
 echo ""
 echo "entering nconfig"
 echo ""
-make ARCH=arm CROSS_COMPILE=/media/dgod/kernel/kernel/UBERTC-arm-eabi-4.9-17-5-15/bin/arm-eabi- nconfig
+make ARCH=arm CROSS_COMPILE=/media/dgod/kernel/kernel/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.03/bin/arm-cortex_a15-linux-gnueabihf- nconfig
 
 ### compile kernel
 echo ""
 echo "compiling kernel"
 echo ""
-make ARCH=arm CROSS_COMPILE=/media/dgod/kernel/kernel/UBERTC-arm-eabi-4.9-17-5-15/bin/arm-eabi- zImage-dtb -j4
+make ARCH=arm CROSS_COMPILE=/media/dgod/kernel/kernel/arm-cortex_a15-linux-gnueabihf-linaro_4.9.3-2015.03/bin/arm-cortex_a15-linux-gnueabihf- zImage-dtb -j4
 
 echo "checking for compiled kernel..."
 if [ -f arch/arm/boot/zImage-dtb ]
