@@ -14,8 +14,8 @@ echo ""
 echo "cleaning"
 echo ""
 make clean mrproper
-rm /media/dgod/kernel/kernel/test/arch/arm/boot/dt.img
-rm /media/dgod/kernel/kernel/test/arch/arm/boot/zImage-dtb
+rm /media/dgod/kernel/kernel/gabriel/arch/arm/boot/dt.img
+rm /media/dgod/kernel/kernel/gabriel/arch/arm/boot/zImage-dtb
 
 ### generate build name
 echo ""
