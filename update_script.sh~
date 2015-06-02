@@ -1,0 +1,5 @@
+#!/bin/bash
+
+today=$(date '+%Y_%m_%d__%H_%M_%S');
+
+sed -i '5s/.*/ui_print("'build date-"$today"'"/' /media/dgod/kernel/kernel/output/package/META-INF/com/google/android/updater-script
