@@ -39,7 +39,7 @@ make ARCH=arm CROSS_COMPILE=/media/dgod/kernel/kernel/UBERTC-arm-eabi-4.9-17-5-1
 echo ""
 echo "compiling kernel"
 echo ""
-make ARCH=arm CROSS_COMPILE=/media/dgod/kernel/kernel/UBERTC-arm-eabi-4.9-17-5-15/bin/arm-eabi- zImage-dtb -j4
+make ARCH=arm CROSS_COMPILE=/media/dgod/kernel/kernel/UBERTC-arm-eabi-4.9-17-5-15/bin/arm-eabi- zImage-dtb module -j4
 
 echo "checking for compiled kernel..."
 if [ -f arch/arm/boot/zImage-dtb ]
@@ -74,7 +74,7 @@ echo ""
 echo "copy bumped image"
 echo ""
 \cp /media/dgod/kernel/kernel/output/boot_bumped.img /media/dgod/kernel/kernel/output/package/boot.img
-
+find . -name '*ko' -exec \cp '{}' /media/dgod/kernel/kernel/output/package/system/lib/modules/ \;
 ### create flashable zip
 echo ""
 echo "create flashable zip"
