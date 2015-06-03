@@ -244,23 +244,12 @@ static ssize_t mic_gain_store(struct kobject *kobj,
 static ssize_t speaker_gain_show(struct kobject *kobj,
 		struct kobj_attribute *attr, char *buf)
 {
-#ifndef CONFIG_MACH_LGE
-         return sprintf(buf, "%u %u\n",
- 			taiko_read(fauxsound_codec_ptr,
- 				TAIKO_A_CDC_RX3_VOL_CTL_B2_CTL),
- 			taiko_read(fauxsound_codec_ptr,
- 				TAIKO_A_CDC_RX4_VOL_CTL_B2_CTL));
-#else
-		unsigned int retl, retr;
- 
-		retl = taiko_read(fauxsound_codec_ptr,
-			TAIKO_A_CDC_RX3_VOL_CTL_B2_CTL);
-		retr = taiko_read(fauxsound_codec_ptr,
-			TAIKO_A_CDC_RX4_VOL_CTL_B2_CTL);
+        return sprintf(buf, "%u %u\n",
+			taiko_read(fauxsound_codec_ptr,
+				TAIKO_A_CDC_RX3_VOL_CTL_B2_CTL),
+			taiko_read(fauxsound_codec_ptr,
+				TAIKO_A_CDC_RX4_VOL_CTL_B2_CTL));
 
-		return sprintf(buf, "%u %u\n",
-			retl == 24 ? 0 : retl, retr == 24 ? 0 : retr);
-#endif
 }
 
 static ssize_t speaker_gain_store(struct kobject *kobj,
@@ -543,3 +532,14 @@ static int sound_control_init(void)
 }
 
 static void sound_control_exit(void)
+{
+	if (sound_control_kobj != NULL)
+		kobject_put(sound_control_kobj);
+}
+
+module_init(sound_control_init);
+module_exit(sound_control_exit);
+MODULE_LICENSE("GPL and additional rights");
+MODULE_AUTHOR("Paul Reioux <reioux@gmail.com>");
+MODULE_DESCRIPTION("Sound Control Module 3.x");
+
