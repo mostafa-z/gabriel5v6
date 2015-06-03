@@ -99,7 +99,7 @@ static char custom_profile[20] = "custom";			// ZZ: name to show in sysfs if any
 // Yank: enable/disable debugging code
 // #define ZZMOOVE_DEBUG
 
-/*
+
  * The polling frequency of this governor depends on the capability of
  * the processor. Default polling frequency is 1000 times the transition
  * latency of the processor. The governor will work on any processor with
